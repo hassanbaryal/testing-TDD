@@ -5,8 +5,9 @@ function capitalize(str) {
   return newStr.join('');
 }
 
-function reverseString() {
-
+function reverseString(str) {
+  const newStr = str.split('').reverse();
+  return newStr.join('');
 }
 
 export { capitalize, reverseString };
