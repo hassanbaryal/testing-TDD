@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { capitalize } from './index';
+import { capitalize, reverseString } from './index';
 
 // CAPITAILIZE TESTS
 describe('capitalize', () => {
@@ -12,4 +12,12 @@ describe('capitalize', () => {
   });
 });
 
-describe.skip('reverseString', () => {});
+describe('reverseString', () => {
+  test.only('Empy String', () => {
+    expect(reverseString('')).toMatch('');
+  });
+
+  test.only('Reverses String', () => {
+    expect(reverseString('Ting tang.')).toMatch(/.gnat gniT/);
+  });
+});
