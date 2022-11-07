@@ -1,3 +1,21 @@
+class Calculator {
+  static add(a, b) {
+    return a + b;
+  }
+
+  static subtract(a, b) {
+    return a - b;
+  }
+
+  static divide(a, b) {
+    return a / b;
+  }
+
+  static multiply(a, b) {
+    return a * b;
+  }
+}
+
 function capitalize(str) {
   if (str.length < 1) return str;
   const newStr = str.split('');
@@ -10,4 +28,4 @@ function reverseString(str) {
   return newStr.join('');
 }
 
-export { capitalize, reverseString };
+export { Calculator, capitalize, reverseString };
