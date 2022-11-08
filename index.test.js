@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 import {
-  Calculator, capitalize, reverseString, caesarCipher,
+  Calculator, capitalize, reverseString, caesarCipher, analyzeArray,
 } from './index';
 
 // CAPITAILIZE TESTS
@@ -53,6 +53,7 @@ describe('caesarCipher', () => {
   test.only('Empy String', () => {
     expect(caesarCipher('Test', 0)).toMatch(/Test/);
   });
+
   test.only('String with positive shift of 3', () => {
     expect(caesarCipher('Testing this thing is weird', 3)).toMatch(/Whvwlqj wklv wklqj lv zhlug/);
   });
@@ -63,5 +64,25 @@ describe('caesarCipher', () => {
 
   test.only('String with punctiation', () => {
     expect(caesarCipher('What a weird day! Maybe, just maybe, I should check the time. Hmm, I\'m just going to sleep in.', 12)).toMatch(/Itmf m iqudp pmk! Ymknq, vgef ymknq, U etagxp otqow ftq fuyq. Tyy, U'y vgef sauzs fa exqqb uz./);
+  });
+});
+
+describe('analyzeArray', () => {
+  test.only('Empty array', () => {
+    expect(analyzeArray([])).toEqual({
+      average: null, min: null, max: null, length: null,
+    });
+  });
+
+  test.only('Non-empty array', () => {
+    expect(analyzeArray([1, 2, 3])).toEqual({
+      average: 2, min: 1, max: 3, length: 3,
+    });
+  });
+
+  test.only('Array with negative value', () => {
+    expect(analyzeArray([1, -2, 4])).toEqual({
+      average: 1, min: -2, max: 4, length: 3,
+    });
   });
 });
