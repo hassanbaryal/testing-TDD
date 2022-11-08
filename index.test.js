@@ -1,5 +1,7 @@
 /* eslint-disable no-undef */
-import { Calculator, capitalize, reverseString } from './index';
+import {
+  Calculator, capitalize, reverseString, caesarCipher,
+} from './index';
 
 // CAPITAILIZE TESTS
 describe('capitalize', () => {
@@ -44,5 +46,22 @@ describe('Calculator Object', () => {
   test.only('multiply method', () => {
     expect(Calculator.multiply(4, 3)).toBe(12);
     expect(Calculator.multiply(4, 0.3)).toBeCloseTo(1.2);
+  });
+});
+
+describe('caesarCipher', () => {
+  test.only('Empy String', () => {
+    expect(caesarCipher('Test', 0)).toMatch(/Test/);
+  });
+  test.only('String with positive shift of 3', () => {
+    expect(caesarCipher('Testing this thing is weird', 3)).toMatch(/Whvwlqj wklv wklqj lv zhlug/);
+  });
+
+  test.only('String with negative shift of 7', () => {
+    expect(caesarCipher('Testing this thing is weird', -7)).toMatch(/Mxlmbgz mabl mabgz bl pxbkw/);
+  });
+
+  test.only('String with punctiation', () => {
+    expect(caesarCipher('What a weird day! Maybe, just maybe, I should check the time. Hmm, I\'m just going to sleep in.', 12)).toMatch(/Itmf m iqudp pmk! Ymknq, vgef ymknq, U etagxp otqow ftq fuyq. Tyy, U'y vgef sauzs fa exqqb uz./);
   });
 });
