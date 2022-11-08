@@ -32,7 +32,6 @@ const caesarCipher = (str, shift) => {
   if (shift === 0) return str;
   const newStr = str.split('');
   for (let i = 0; i < str.length; i += 1) {
-    // use charCodeAt and fromCharCode
     const currentCharCode = str.charCodeAt(i);
     let newCharCode = currentCharCode + shift;
     if (currentCharCode >= 65 && currentCharCode <= 90) {
@@ -48,6 +47,36 @@ const caesarCipher = (str, shift) => {
   return newStr.join('');
 };
 
+function compareNumbers(a, b) {
+  return a - b;
+}
+
+function analyzeArray(array) {
+  if (array.length < 1) {
+    return {
+      average: null,
+      min: null,
+      max: null,
+      length: null,
+    };
+  }
+
+  array.sort(compareNumbers);
+  const min = array[0];
+  const max = array[array.length - 1];
+  // eslint-disable-next-line prefer-destructuring
+  const length = array.length;
+  const sum = array.reduce((prev, curr) => prev + curr, 0);
+  const average = sum / length;
+
+  return {
+    average,
+    min,
+    max,
+    length,
+  };
+}
+
 export {
-  Calculator, capitalize, reverseString, caesarCipher,
+  Calculator, capitalize, reverseString, caesarCipher, analyzeArray,
 };
